@@ -85,7 +85,7 @@ export const createUser = async (userInput: Prisma.UserCreateInput) => {
     return userCreated;
   } catch (error: any) {
     throw new Error(
-      "Ocurrió un error inesperado al validar el usuario, por favor, revise email y contraseña."
+      "Ocurrió un error inesperado al validar el usuario, porr favor, revise email y contraseña."
     );
   }
 };
