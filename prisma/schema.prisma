@@ -10,27 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
-
-
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  username           String?     @unique @db.VarChar(256)
-  password           String     @db.VarChar(256)
+  id            Int           @id @default(autoincrement())
+  email         String        @unique
+  name          String?
+  username      String?       @unique @db.VarChar(256)
+  password      String        @db.VarChar(256)
+  ResultChaside TestChaside[]
 }
 
-model Respuestas {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  formulario   Formulario    @relation(fields: [preguntasId], references: [id])
-  preguntasId Int     @unique
-}
-
-model Formulario {
-  id      Int      @id @default(autoincrement())
-  pregunta    String?
-  respuestas Respuestas[]
+model TestChaside {
+  id       Int     @id @default(autoincrement())
+  hability String?
+  interest String?
+  user     User?   @relation(fields: [userId], references: [id])
+  userId   Int?
 }

@@ -1,14 +1,15 @@
 import express from "express";
-import diaryRouter from "./routes/diaries";
+
+import chaside from "./routes/chaside";
 import login from "./routes/user";
 const PORT = 3001;
 
 const app = express();
 
 app.use(express.json());
-app.use("/create", login);
-app.use("/api/diaries", diaryRouter);
+app.use("/", login);
+app.use("/testChaside", chaside);
 
 app.listen(PORT, () => {
-  console.log(`e serverdsa esta corriendo en ${PORT}`);
+  console.log(`El server corre enn ${PORT}`);
 });
